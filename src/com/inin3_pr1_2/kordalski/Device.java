@@ -1,6 +1,6 @@
 package com.inin3_pr1_2.kordalski;
 
-public class Device {
+abstract public class Device {
 
     String producer;
     String model;
@@ -14,5 +14,10 @@ public class Device {
         this.colour = colour;
     }
 
+    public Integer getAge(){
+        return 2021 - yearOfProduction;
+    }
 
+    abstract public void turnOn();
+    abstract public boolean isTurnedOn();
 }

@@ -1,6 +1,6 @@
 package com.inin3_pr1_2.kordalski;
 
-public class Animal {
+public class Animal implements Saleable{
     String species;
     private boolean canFly;
     private int legs;
@@ -34,6 +34,20 @@ public class Animal {
         if(this.weight <= 0.0) {
             this.isAlive = false;
             System.out.println(this.species + " umarl");
+        }
+    }
+    @Override
+    public void sale(Human seller, Human buyer, Double price){
+        if(buyer.cash < price){
+            System.out.println("Sorry, nie masz kasy");
+        } else if (seller.pet != this){
+            System.out.println("Sorry, ale nie masz zwierzaka");
+        } else {
+            seller.cash += price;
+            buyer.cash -= price;
+            seller.pet = null;
+            buyer.pet = this;
+            System.out.println("Udało się sprzedać zwierzaka za " + price + " pln");
         }
     }
 

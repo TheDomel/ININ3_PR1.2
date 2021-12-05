@@ -1,6 +1,6 @@
 package com.inin3_pr1_2.kordalski;
 
-abstract public class Device {
+abstract public class Device implements Saleable{
 
     String producer;
     String model;
@@ -20,4 +20,6 @@ abstract public class Device {
 
     abstract public void turnOn();
     abstract public boolean isTurnedOn();
+
+
 }

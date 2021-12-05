@@ -17,9 +17,10 @@ public class Main {
         System.out.println(firstPhone);
 
         Human me = new Human();
-        System.out.println(me.getSalary());
 
-        me.setSalary(600.0);
+
+        me.setSalary(10000.0);
+        System.out.println(me.getSalary());
 
         me.Feed();
         me.GoForWalk();
@@ -34,5 +35,18 @@ public class Main {
         fiat.isTurnedOn();
         firstPhone.turnOn();
         firstPhone.isTurnedOn();
+
+        Human brotherInLow = new Human();
+
+        brotherInLow.cash = 200000.0;
+        me.car = fiat;
+        me.pet = cat1;
+        me.phone = firstPhone;
+        me.h1 = me;
+
+        fiat.sale(me,brotherInLow, 8000.0);
+        firstPhone.sale(me, brotherInLow, 8000.0);
+        cat1.sale(me, brotherInLow, 800000.0);
+        me.sale(me, brotherInLow, 8000.0);
     }
 }

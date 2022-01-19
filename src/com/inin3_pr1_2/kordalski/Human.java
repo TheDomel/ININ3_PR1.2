@@ -1,13 +1,15 @@
 package com.inin3_pr1_2.kordalski;
 
-public class Human extends Animal{
+import creature.Animal;
+
+public class Human extends Animal {
     String firstName;
     String lastName;
     private Double salary;
     public Double cash;
     public Car car;
     Phone phone;
-    Animal pet;
+    public Animal pet;
     Human h1;
 
     public Double getSalary(){

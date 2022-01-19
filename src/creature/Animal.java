@@ -1,11 +1,14 @@
-package com.inin3_pr1_2.kordalski;
+package creature;
 
-public class Animal implements Saleable{
-    String species;
+import com.inin3_pr1_2.kordalski.Human;
+import com.inin3_pr1_2.kordalski.Saleable;
+
+abstract public class Animal implements Saleable {
+    public String species;
     private boolean canFly;
     private int legs;
     private boolean isAlive;
-    double weight;
+    public double weight;
 
     public Animal(String species) {
         this.species = species;

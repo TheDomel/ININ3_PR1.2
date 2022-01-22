@@ -1,6 +1,6 @@
 package com.inin3_pr1_2.kordalski;
 
-public class Car extends Device implements Saleable{
+public abstract class Car extends Device implements Saleable{
 
     Double engineVolume;
     private String plates;
@@ -38,5 +38,7 @@ public class Car extends Device implements Saleable{
             System.out.println("Udało się sprzedać auto za " + price + " pln");
         }
     }
+
+    public abstract void Refuel();
 }
 

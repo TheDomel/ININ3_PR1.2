@@ -3,6 +3,9 @@ package com.inin3_pr1_2.kordalski;
 import creature.Animal;
 import creature.Pet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,9 +14,9 @@ public class Main {
         Pet dog = new Pet("Burek");
         Pet cat = new Pet("Marek");
 
-        Car fiat = new Car("Fiat", "Bravo", 2016, "Black", 3.0) ;
-        Car passerati = new Car("VW", "Passat", 2004, "Black", 3.0);
-        Car firstCar = new Car("Porshe", "911", 2004, "Black", 3.0);
+        LPG fiat = new LPG("Fiat", "Bravo", 2016, "Black", 3.0) ;
+        Electric passerati = new Electric("VW", "Passat", 2004, "Black", 3.0);
+        Diesel firstCar = new Diesel("Porshe", "911", 2004, "Black", 3.0);
 
         Phone firstPhone = new Phone("Apple", "iPhone 11", 2020,"Black", 8, 64);
 
@@ -51,5 +54,14 @@ public class Main {
         firstPhone.sale(me, brotherInLow, 8000.0);
         cat1.sale(me, brotherInLow, 800000.0);
         me.sale(me, brotherInLow, 8000.0);
+
+        List<String> apps = new ArrayList<>();
+        apps.add("fb");
+        apps.add("gmail");
+        apps.add("tiktok");
+        firstPhone.installAnApp("fb");
+        fiat.Refuel();
+        passerati.Refuel();
+        firstCar.Refuel();
     }
 }

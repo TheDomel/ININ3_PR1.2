@@ -15,11 +15,10 @@ public class FarmAnimal extends Animal implements Edbile{
         System.out.println(this.species);
 
 
-        System.out.println(this.species + "was eaten");
-        if(beEaten == false){
-            System.out.println("NIE JADALNE");
-        }else {
-            System.out.println("JADALNE");
-        }
+    }
+
+    @Override
+    public void feed(Double footWeight) {
+
     }
 }

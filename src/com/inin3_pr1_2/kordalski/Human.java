@@ -42,5 +42,10 @@ public class Human extends Animal {
             System.out.println("Nie wolno handlować ludźmi :/");
         }
     }
+
+    @Override
+    public void feed(Double footWeight) {
+
+    }
 }
 

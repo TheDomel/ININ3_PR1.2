@@ -3,11 +3,12 @@ package creature;
 import com.inin3_pr1_2.kordalski.Human;
 import com.inin3_pr1_2.kordalski.Saleable;
 
-abstract public class Animal implements Saleable {
+abstract public class Animal implements Saleable, Feedable {
+    private static final double DEFAULT_FOOD_WEIGHT = 1.0;
     public String species;
     private boolean canFly;
     private int legs;
-    private boolean isAlive;
+    boolean isAlive;
     public double weight;
 
     public Animal(String species) {
@@ -17,6 +18,7 @@ abstract public class Animal implements Saleable {
         this.isAlive = isAlive;
         this.weight = weight;
     }
+    
 
     public void Feed() {
         if(!this.isAlive) {
@@ -25,6 +27,19 @@ abstract public class Animal implements Saleable {
         }
         this.weight += 1.0;
         System.out.println(this.species + " nakarmiony, teraz wazy " + this.weight + "kg");
+    }
+
+    public void feed(){
+        this.feed(DEFAULT_FOOD_WEIGHT);
+    }
+
+    public void feed(double foodWeight){
+        if (this.isAlive){
+            this.weight += foodWeight;
+            System.out.println("thx for food bro");
+        } else {
+            System.out.println("too late, sorry");
+        }
     }
 
     public void GoForWalk() {

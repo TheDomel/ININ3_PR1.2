@@ -5,4 +5,8 @@ package creature;
             super(species);
         }
 
-}
+        @Override
+        public void feed(Double footWeight) {
+
+        }
+    }

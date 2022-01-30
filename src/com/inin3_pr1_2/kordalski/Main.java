@@ -45,6 +45,9 @@ public class Main {
 
         Human brotherInLow = new Human();
 
+        me.name = "Dominik";
+        brotherInLow.name = "Franek";
+
         brotherInLow.cash = 200000.0;
         me.pet = cat1;
         me.phone = firstPhone;
@@ -101,12 +104,14 @@ public class Main {
         fiat.value = 15000;
         passerati.value = 10000;
         firstCar.value = 1000000;
-        
+
         me.addCar(fiat);
         me.addCar(passerati);
+
         brotherInLow.addCar(firstCar);
         System.out.println("Twoje auta w garażu: ");
         me.carList();
+
         System.out.println("Ich wartość wynosi: " + me.getGarageValue() + " cebulionów");
         System.out.println("Auta twojego ziomka: ");
         System.out.println("Ich wartość wynosi: " + brotherInLow.getGarageValue() + " cebulionów");
@@ -117,5 +122,10 @@ public class Main {
         me.carList();
         System.out.println("Ich wartość wynosi: " + me.getGarageValue() + " cebulionów");
 
+        fiat.sale(me, brotherInLow, 20000.0);
+        System.out.println("Twoje auta w garażu: ");
+        me.carList();
+        System.out.println("Auta twojego ziomka: ");
+        brotherInLow.carList();
     }
 }

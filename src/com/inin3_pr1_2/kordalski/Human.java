@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Human extends Animal {
-    String lastName;
+    String name;
     private Double salary;
     public Double cash;
     public Car[] garage;
@@ -20,9 +20,17 @@ public class Human extends Animal {
 
     private final int DEFAULT_GARAGE_SIZE = 4;
 
-    public boolean hasCar(Car car) {
+    /*public boolean hasCar(Car car) {
         for (int i = 0; i < this.garage.length; i++) {
             if (this.garage[i] != null && this.garage[i].equals(car)) {
+                return true;
+            }
+        }
+        return false;
+    }*/
+    public boolean hasCar(Car car){
+        for(int i = 0; i< this.garage.length; i++){
+            if(this.garage[i] != null && this.garage[i].equals(DEFAULT_GARAGE_SIZE)){
                 return true;
             }
         }

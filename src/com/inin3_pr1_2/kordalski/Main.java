@@ -5,6 +5,7 @@ import creature.Pet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -45,7 +46,6 @@ public class Main {
         Human brotherInLow = new Human();
 
         brotherInLow.cash = 200000.0;
-        me.car = fiat;
         me.pet = cat1;
         me.phone = firstPhone;
         me.h1 = me;
@@ -63,5 +63,59 @@ public class Main {
         fiat.Refuel();
         passerati.Refuel();
         firstCar.Refuel();
+
+        Integer[] numbers = {2, 1, 3, 2};
+        String[] days = {"pn", "wt", "śr", "czw"};
+        Integer[] otherNumbers = new Integer[4];
+        otherNumbers[0] = 2;
+        otherNumbers[1] = 1;
+        otherNumbers[2] = 3;
+        otherNumbers[3] = 2;
+
+        List<Integer> listOfNumbers = new LinkedList<>();
+        listOfNumbers.add(2);
+        listOfNumbers.add(1);
+        listOfNumbers.add(15);
+
+        Human[] family = new Human[5];
+        family[0] = me;
+        family[1] = me;
+        family[2] = brotherInLow;
+        System.out.println();
+
+        List<Human> otherFamily = new LinkedList<>();
+        otherFamily.add(me);
+        otherFamily.add(brotherInLow);
+        otherFamily.add(me);
+        System.out.println(otherFamily.size());
+
+
+        Set<Human> anotherFamily = new HashSet<>();
+        anotherFamily.add(me);
+        anotherFamily.add(me);
+        anotherFamily.add(me);
+        anotherFamily.add(me);
+        anotherFamily.add(brotherInLow);
+        System.out.println(anotherFamily.size());
+
+        fiat.value = 15000;
+        passerati.value = 10000;
+        firstCar.value = 1000000;
+        
+        me.addCar(fiat);
+        me.addCar(passerati);
+        brotherInLow.addCar(firstCar);
+        System.out.println("Twoje auta w garażu: ");
+        me.carList();
+        System.out.println("Ich wartość wynosi: " + me.getGarageValue() + " cebulionów");
+        System.out.println("Auta twojego ziomka: ");
+        System.out.println("Ich wartość wynosi: " + brotherInLow.getGarageValue() + " cebulionów");
+        brotherInLow.carList();
+
+        me.removeCar(passerati);
+        System.out.println("Twoje auta w garażu: ");
+        me.carList();
+        System.out.println("Ich wartość wynosi: " + me.getGarageValue() + " cebulionów");
+
     }
 }

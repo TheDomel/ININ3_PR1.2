@@ -2,7 +2,9 @@ package com.inin3_pr1_2.kordalski;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Phone extends Device implements Saleable{
 
@@ -13,12 +15,15 @@ public class Phone extends Device implements Saleable{
     final String ramText;
     int totalStorage;
 
+    public List<Application> listApplications;
+
     public Phone(String producer, String model, int yearOfProduction, String colour, int ram, int totalStorage) {
 
         super(producer, model, yearOfProduction, colour);
         this.ram = ram;
         this.totalStorage = totalStorage;
         this.ramText = ram + "GB";
+        this.listApplications = new ArrayList<>();
     }
 
     @Override
@@ -58,7 +63,6 @@ public class Phone extends Device implements Saleable{
         }
     }
 
-
     public void installAnApp(List<String> appNames){
         for(String appName : appNames){
             this.installAnApp(appName);
@@ -88,7 +92,6 @@ public class Phone extends Device implements Saleable{
         }
     }
 
-
     public void installAnApp(URL url){
         System.out.println("sprawdzanie adresu docelowego");
         System.out.println("sprawdzanie rozmiaru aplikacji");
@@ -99,5 +102,76 @@ public class Phone extends Device implements Saleable{
         System.out.println("instalacja");
     }
 
+    public void installAnAppSecondTime(Human human, Application nameApplication) {
+        if (human.cash > nameApplication.priceApplication) {
+            if (listApplications.contains(nameApplication)) {
+                System.out.println("Posiadasz już tą aplikacje " + nameApplication.nameApplication);
+            } else {
+                listApplications.add(nameApplication);
+                human.cash -= nameApplication.priceApplication;
+                System.out.println("sprawdzanie adresu docelowego");
+                System.out.println("sprawdzanie rozmiaru aplikacji");
+                System.out.println("sprawdzanie miejsca na telefonie");
+                System.out.println("obsługa płatności");
+                System.out.println("pobieranie aplikacji");
+                System.out.println("rozpakowanie aplikacji");
+                System.out.println("instalacja " + nameApplication.nameApplication);
+                nameApplication.installedApplication = true;
+            }
+        }
+    }
+
+    public boolean applicationIsInstalled(Application nameApplication) {
+        return nameApplication.installedApplication;
+    }
+
+    public boolean applicationIsInstalled(String nameApplication) {
+        for (Application application : listApplications) {
+            if (Objects.equals(application.installedApplication, nameApplication) && application.installedApplication) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void freeApplications() {
+        System.out.println("Darmowe aplikacje (za darmo to i ocet słodki :) : ");
+        int counter = 0;
+        for (Application application : listApplications) {
+            if (application.priceApplication == 0.0) {
+                System.out.println(application.nameApplication);
+                counter += 1;
+            }
+        }
+        if (counter == 0) {
+            System.out.println("Nie ma nic za darmo :<");
+        }
+    }
+
+    public Double installedAppsCost(){
+        double cost = 0.0;
+        for (Application application:listApplications) {
+            if(application.installedApplication){
+                cost += application.priceApplication;
+            }
+        }
+        return cost;
+    }
+
+    public void installedApplicationName(){
+        listApplications.sort((a, b) -> a.nameApplication.compareTo(b.nameApplication));
+        System.out.println("Aplikacje według alfabetu: ");
+        for (Application application : listApplications){
+            System.out.println(application.nameApplication);
+        }
+    }
+
+    public void installedApplicationPrice(){
+        listApplications.sort((a, b) -> a.priceApplication.compareTo(b.priceApplication));
+        System.out.println("Aplikacje według ceny: ");
+        for (Application application : listApplications){
+            System.out.println(application.nameApplication);
+        }
+    }
 }
 

@@ -20,6 +20,7 @@ public class Main {
         Diesel firstCar = new Diesel("Porshe", "911", 2004, "Black", 3.0);
 
         Phone firstPhone = new Phone("Apple", "iPhone 11", 2020,"Black", 8, 64);
+        Phone secondPhone = new Phone("Xiaomi", "mi 9t", 2019,"Blue", 6, 64);
 
         System.out.println(firstPhone);
 
@@ -127,5 +128,52 @@ public class Main {
         me.carList();
         System.out.println("Auta twojego ziomka: ");
         brotherInLow.carList();
+
+        Application Darknet = new Application("DARK NET", "21.37", 10.0);
+        Application Study = new Application("Study", "0.00001", 200.0);
+        Application C19 = new Application("C19", "3.0", 2000.0);
+        Application Instagram = new Application("Instagram", "220.0.0.16.115", 0.0);
+
+
+
+        System.out.println(Darknet.toString());
+        System.out.println(Study.toString());
+        System.out.println(C19.toString());
+        System.out.println(Instagram.toString());
+
+        System.out.println(" ");
+        System.out.println("Twoje cebuliony: " + me.cash);
+        System.out.println(" ");
+        firstPhone.installAnAppSecondTime(me, Darknet);
+        firstPhone.installAnAppSecondTime(me, Instagram);
+        firstPhone.installAnAppSecondTime(me, Study);
+        System.out.println(" ");
+        firstPhone.installAnAppSecondTime(me, Darknet);
+        System.out.println(" ");
+        firstPhone.installedApplicationName();
+        System.out.println(" ");
+        firstPhone.installedApplicationPrice();
+        System.out.println(" ");
+        firstPhone.freeApplications();
+        System.out.println(" ");
+        System.out.println("Wartość wszystkich aplikacji: " + firstPhone.installedAppsCost() + " cebulionów");
+        System.out.println(" ");
+        System.out.println("Twoje cebuliony po zakupie aplikacji: " + me.cash);
+
+        System.out.println(" ");
+        System.out.println("Twoje cebuliony: " + brotherInLow.cash);
+        System.out.println(" ");
+        secondPhone.installAnAppSecondTime(brotherInLow, Darknet);
+        secondPhone.installAnAppSecondTime(brotherInLow, Study);
+        secondPhone.installAnAppSecondTime(brotherInLow, C19);
+        System.out.println(" ");
+        secondPhone.installedApplicationName();
+        System.out.println(" ");
+        firstPhone.installedApplicationPrice();
+        System.out.println(" ");
+        secondPhone.freeApplications();
+        System.out.println("Wartość wszystkich aplikacji: " + secondPhone.installedAppsCost() + " cebulionów");
+        System.out.println(" ");
+        System.out.println("Twoje cebuliony po zakupie aplikacji: " + brotherInLow.cash);
     }
 }
